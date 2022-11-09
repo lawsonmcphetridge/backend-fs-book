@@ -20,9 +20,6 @@ describe('tests', () => {
   });
 
 
-
-
-
   it('/books1 will list out a page of a single book', async () => {
     const res = await request(app).get('/books/1');
     const exp = await Book.getSingleBook('1');
@@ -38,6 +35,7 @@ describe('tests', () => {
   it('/authors1 will list out a page of a single book', async () => {
     const res = await request(app).get('/authors/1');
     const exp = await Author.getSingleBook('1');
+    console.log('TESTSTSTSTSTS', exp);
     expect(res.body).toEqual(exp);
   });
 
