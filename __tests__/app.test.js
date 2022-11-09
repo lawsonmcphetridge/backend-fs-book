@@ -29,13 +29,14 @@ describe('tests', () => {
     expect(res.body).toEqual(exp);
   });
 
-
-
-  it('/authors will list a page of authors', async () => {
+  it('/authors will list out a page of all authors', async () => {
     const res = await request(app).get('/authors');
-    const expected = await Author.getAllAuthors();
-    expected(res.body).toEqual(expected);
+    const exp = await Author.getAllAuthors();
+    expect(res.body).toEqual(exp);
   });
+
+
+
 
 
   
