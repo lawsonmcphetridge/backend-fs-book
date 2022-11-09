@@ -20,6 +20,17 @@ describe('tests', () => {
 
 
 
+
+
+  it('/books1 will list out a page of all books', async () => {
+    const res = await request(app).get('/books/1');
+    const exp = await Book.getSingleBook('1');
+    expect(res.body).toEqual(exp);
+  });
+
+
+  
+
   afterAll(() => {
     pool.end();
   });

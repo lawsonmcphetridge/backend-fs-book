@@ -16,6 +16,14 @@ CREATE TABLE authors (
     dob BIGINT,
     pob VARCHAR
 );
+CREATE TABLE book_author (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    author_id BIGINT,
+    book_id BIGINT,
+    FOREIGN KEY (author_id) REFERENCES authors(id),
+    FOREIGN KEY (book_id) REFERENCES books(id)
+);
+
 
 INSERT INTO
     books (title, released)
@@ -31,3 +39,17 @@ VALUES
         ('J. K. Rowling', 1965, 'Yate, United Kingdom'),
         ('J. R. R. Tolkien', 1892, 'Bloemfontein, South Africa'),
         ('Herman Melville', 1819, 'New York, NY');
+
+INSERT INTO
+    book_author (author_id, book_id)
+VALUES
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4);
+
+
+
+
+    
+
